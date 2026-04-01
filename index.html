@@ -1058,6 +1058,7 @@ thead .col-total{color:var(--a2) !important;}
       <button class="nav-btn" onclick="showRule('protect')"    id="btn-protect"   ><span class="nb-icon">🛡️</span><span class="nb-name">선생님을 지켜라</span><span class="nb-badge badge-단일">단일</span></button>
       <div class="cat-label">이벤트 종목</div>
       <button class="nav-btn" onclick="showRule('copsrobbers')" id="btn-copsrobbers"><span class="nb-icon">🚔</span><span class="nb-name">경찰과 도둑</span><span class="nb-badge badge-단일">단일</span></button>
+      <button class="nav-btn" onclick="showRule('treasure')"    id="btn-treasure"  ><span class="nb-icon">🎁</span><span class="nb-name">보물찾기</span><span class="nb-badge badge-단일">단일</span></button>
     </nav>
     <main class="rules-content" id="rulesContent">
       <div class="rules-empty">
@@ -1616,6 +1617,27 @@ const DATA={
         {k:'도둑 전략',v:'20분간 넓게 흩어져 시간 끌기. 동료 다수 피포 시 소수 미끼 → 구출 작전'},
         {k:'종료 5분 전',v:'마이크로 "남은 시간 5분, 생존 도둑 OO명" 방송 시 긴장감 극대화'},
       ]},*/
+    ]
+  },
+  treasure:{
+    emoji:'🎁',title:'보물찾기',subtitle:'교내 전체 · 1인 3개 제한',cat:'단일',
+    color:'#ffc832',bg:'rgba(255,200,50,0.1)',
+    tags:[{t:'전교 종목',c:'tag-yellow'},{t:'1인 3개 제한',c:'tag-red'}],
+    sections:[
+      {title:'경기 구성 및 운영',rows:[
+        {k:'진행 방식',v:'학교 건물 내 각 층 곳곳에 숨겨진 보물 종이를 찾는 방식으로 진행'},
+        {k:'제한 인원',v:'1인당 최대 <span class="hl">3개</span>까지만 찾을 수 있다'},
+        {k:'보물 종이',v:'반드시 학생회 <span class="hl2">직인 또는 복사 방지 표시</span>가 있는 공식 종이만 인정'},
+      ]},
+      {title:'경품 수령 규정',rows:[
+        {k:'수령 방법',v:'찾은 보물 종이를 학생회에 제출하면 해당 상품으로 교환'},
+        {k:'무효 처리',v:'직인이 없거나 훼손된 종이는 인정하지 않는다',warn:true},
+        {k:'강취 금지',v:'타인의 종이를 빼앗거나 강제로 가져가는 행위는 즉시 실격 처리',warn:true},
+      ]},
+      {title:'힌트 운영',rows:[
+        {k:'힌트 방송',v:'방송을 통해 실시간으로 힌트를 제공할 수 있다'},
+        {k:'힌트 시기',v:'학생회 총괄의 판단에 따라 진행 중 수시로 제공'},
+      ]},
     ]
   },
 };
