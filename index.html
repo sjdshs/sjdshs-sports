@@ -1630,7 +1630,7 @@ const DATA={
         {k:'보물 종이',v:'반드시 학생회 <span class="hl2">직인 또는 복사 방지 표시</span>가 있는 공식 종이만 인정'},
       ]},
       {title:'경품 수령 규정',rows:[
-        {k:'수령 방법',v:'찾은 보물 종이를 학생회에 제출하면 해당 상품으로 교환'},
+        {k:'수령 방법',v:'찾은 보물 종이를 학생회에 제출하면 해당 등급의 경품으로 교환'},
         {k:'무효 처리',v:'직인이 없거나 훼손된 종이는 인정하지 않는다',warn:true},
         {k:'강취 금지',v:'타인의 종이를 빼앗거나 강제로 가져가는 행위는 즉시 실격 처리',warn:true},
       ]},
@@ -1946,6 +1946,15 @@ function renderSchedule(rows, grade){
     body.innerHTML=`<div style="padding:40px;text-align:center;color:var(--muted);font-size:13px;">일정 데이터가 없습니다</div>`;
     return;
   }
+
+  // 시트 순서 무시하고 시간순 정렬
+  function toMinutes(timeStr){
+    if(!timeStr) return 9999;
+    const start = timeStr.split('~')[0].trim();
+    const [h,m] = start.split(':').map(Number);
+    return (h||0)*60 + (m||0);
+  }
+  data.sort((a,b) => toMinutes(a[0]) - toMinutes(b[0]));
 
   // 시간대 기반 블록 구분 (오전/점심/오후)
 function getBlock(time){
