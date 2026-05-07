@@ -687,8 +687,7 @@ thead .col-total{color:var(--a4) !important;}
       <button class="nav-btn" onclick="showRule('relay')"       id="btn-relay"      ><span class="nb-icon">🏃</span><span class="nb-name">900m 계주</span><span class="nb-badge badge-연합">남2녀2</span></button>
       <div class="cat-label">이벤트</div>
       <button class="nav-btn" onclick="showRule('copsrobbers')" id="btn-copsrobbers"><span class="nb-icon">🚔</span><span class="nb-name">경찰과 도둑</span><span class="nb-badge badge-구기">이벤트</span></button>
-      <button class="nav-btn" onclick="showRule('gyeongdo')"    id="btn-gyeongdo"   ><span class="nb-icon">🎭</span><span class="nb-name">경도</span><span class="nb-badge badge-구기">이벤트</span></button>
-      <button class="nav-btn" onclick="showRule('soccer')"      id="btn-soccer"     ><span class="nb-icon">⚽</span><span class="nb-name">사제동행 축구</span><span class="nb-badge badge-구기">이벤트</span></button>
+<button class="nav-btn" onclick="showRule('soccer')"      id="btn-soccer"     ><span class="nb-icon">⚽</span><span class="nb-name">사제동행 축구</span><span class="nb-badge badge-구기">이벤트</span></button>
     </nav>
     <main class="rules-content" id="rulesContent">
       <div class="rules-empty">
@@ -997,14 +996,13 @@ const DATA={
     ]
   },
   copsrobbers:{
-    emoji:'🚔',title:'경찰과 도둑',subtitle:'전교 이벤트 · 단판 15분',
+    emoji:'🚔',title:'경찰과 도둑',subtitle:'전교 이벤트 · 단판 15분 (= 경도)',
     color:'#f5a200',bg:'rgba(245,162,0,0.1)',
     tags:[{t:'이벤트',c:'tag-red'},{t:'단판 15분',c:'tag-yellow'},{t:'약 200명',c:'tag-green'}],
     glance:{
       chips:[
         {icon:'⏱️',label:'경기 시간',val:'단판 15분'},
         {icon:'👮',label:'인원',val:'경찰 50명 vs 도둑 150명'},
-        {icon:'🏛️',label:'감옥 위치',val:'운동장 중앙 (줄다리기 선으로 만든 칸)'},
         {icon:'🔓',label:'탈출',val:'생존 도둑이 손 터치 → 터치된 도둑 해방'},
       ],
       win:'경찰: 시간 내 도둑 전원 검거 / 도둑: 종료 시간까지 한 명이라도 살아남으면 승리'
@@ -1012,7 +1010,7 @@ const DATA={
     flow:[
       {t:'경찰(50명) vs 도둑(150명)으로 나눠 학교 실외 전체에서 진행'},
       {t:'경찰이 도둑을 <b>신체 터치</b>하면 검거'},
-      {t:'잡힌 도둑은 <b>운동장 중앙 감옥</b>으로 이동'},
+      {t:'잡힌 도둑은 즉시 <b>감옥</b>으로 이동'},
       {t:'살아있는 도둑이 감옥 동료 손을 터치 → <b>터치된 도둑만 해방</b>'},
       {t:'탈출 후 <b>5초간</b> 재검거 불가. 경찰은 감옥 주변 1.5m 밖에서 대기'},
       {t:'15분 후 도둑이 한 명이라도 살아있으면 <b>도둑 승리</b>, 전원 검거되면 경찰 승리'},
@@ -1022,9 +1020,9 @@ const DATA={
       {t:'과격한 밀치기·발 걸기 → 경고 후 퇴장'},
     ],
     sections:[
-      {title:'경찰 구성',icon:'📋',rows:[
+      {title:'경찰 구성 및 구역',icon:'📋',rows:[
         {k:'경찰 구성',v:'담임 T(24명) + 학년부장 T(3명) + 교장·감(2명) + 희망 T + 학생회'},
-        {k:'활동 구역',v:'학교 건물 내부 제외 실외 전체'},
+        {k:'활동 구역',v:'학교 건물 내부 및 운동장을 제외한 실외 전체'},
       ]},
     ]
   },
@@ -1088,30 +1086,6 @@ const DATA={
     sections:[
       {title:'승점 배분',icon:'🏅',rows:[
         {k:'1등',v:'400점 / 2등: 250점 / 3등: 100점'},
-      ]},
-    ]
-  },
-  gyeongdo:{
-    emoji:'🎭',title:'경도',subtitle:'담임선생님과 함께하는 이벤트',
-    color:'#e8420a',bg:'rgba(232,66,10,0.1)',
-    tags:[{t:'이벤트',c:'tag-red'},{t:'학급별',c:'tag-yellow'}],
-    glance:{
-      chips:[
-        {icon:'👥',label:'인원',val:'각 반 담임선생님 + 학생 7명'},
-        {icon:'🎯',label:'종류',val:'이벤트'},
-        {icon:'📍',label:'진행',val:'학교 외부'},
-        {icon:'⏱️',label:'시간',val:'11:55~12:20'},
-      ],
-      win:'이벤트 종목으로 별도 규정 적용'
-    },
-    flow:[],
-    bans:[],
-    sections:[
-      {title:'기본 안내',icon:'📋',rows:[
-        {k:'인원',v:'각 반 담임선생님 + 학생 7명'},
-        {k:'장소',v:'학교 외부'},
-        {k:'시간',v:'11:55 ~ 12:20 진행'},
-        {k:'담당',v:'이채현, 전도진 / 이정우 교사'},
       ]},
     ]
   },
