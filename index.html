@@ -687,8 +687,8 @@ thead .col-total{color:var(--a4) !important;}
       <button class="nav-btn" onclick="showRule('relay')"       id="btn-relay"      ><span class="nb-icon">🏃</span><span class="nb-name">900m 계주</span><span class="nb-badge badge-연합">남2녀2</span></button>
       <div class="cat-label">이벤트</div>
       <button class="nav-btn" onclick="showRule('copsrobbers')" id="btn-copsrobbers"><span class="nb-icon">🚔</span><span class="nb-name">경찰과 도둑</span><span class="nb-badge badge-구기">이벤트</span></button>
+      <button class="nav-btn" onclick="showRule('gyeongdo')"    id="btn-gyeongdo"   ><span class="nb-icon">🎭</span><span class="nb-name">경도</span><span class="nb-badge badge-구기">이벤트</span></button>
       <button class="nav-btn" onclick="showRule('soccer')"      id="btn-soccer"     ><span class="nb-icon">⚽</span><span class="nb-name">사제동행 축구</span><span class="nb-badge badge-구기">이벤트</span></button>
-<button class="nav-btn" onclick="showRule('treasure')"    id="btn-treasure"   ><span class="nb-icon">🎁</span><span class="nb-name">보물찾기</span><span class="nb-badge badge-구기">이벤트</span></button>
     </nav>
     <main class="rules-content" id="rulesContent">
       <div class="rules-empty">
@@ -875,7 +875,8 @@ const DATA={
       {t:'1조 4명 모두 막대를 잡고 출발 → 앞에 놓인 콘을 <b>원으로 돌고</b> 복귀'},
       {t:'복귀 후 대기 중인 2조에게 막대 전달 → 2조 출발'},
       {t:'4조까지 동일하게 반복 → 기록 측정'},
-      {t:'4개 반씩 진행 후 각 1·2등이 모여 <b>최종 대결</b>'},
+      {t:'<b>8반이 동시에 대결</b>해서 기록으로 순위 결정'},
+      {t:'학년별 순서(1학년 → 2학년 → 3학년)로 진행'},
     ],
     bans:[
       {t:'막대를 <b>던져서 전달</b>하거나 미리 채가는 것 금지'},
@@ -937,6 +938,7 @@ const DATA={
       {t:'심판 호루라기 + 깃발 신호에 맞춰 시작'},
       {t:'60초 안에 중앙 표시선이 내 팀 쪽으로 넘어오면 그 경기 승리'},
       {t:'60초 후 표시선이 더 가까운 팀 승리'},
+      {t:'결승전은 <b>모든 학년 예선 완료 후</b> 진행'},
     ],
     bans:[
       {t:'줄을 <b>몸에 감는 행위</b> 절대 금지'},
@@ -1020,9 +1022,7 @@ const DATA={
       {t:'과격한 밀치기·발 걸기 → 경고 후 퇴장'},
     ],
     sections:[
-      {title:'승점 배분 및 경찰 구성',icon:'📋',rows:[
-        {k:'승점',v:'이긴 팀에 속한 학생·교사 <b>1인당 100점</b> 학급에 부여'},
-        {k:'학년부장·관리자',v:'학급 뽑기로 점수 귀속'},
+      {title:'경찰 구성',icon:'📋',rows:[
         {k:'경찰 구성',v:'담임 T(24명) + 학년부장 T(3명) + 교장·감(2명) + 희망 T + 학생회'},
         {k:'활동 구역',v:'학교 건물 내부 제외 실외 전체'},
       ]},
@@ -1088,6 +1088,30 @@ const DATA={
     sections:[
       {title:'승점 배분',icon:'🏅',rows:[
         {k:'1등',v:'400점 / 2등: 250점 / 3등: 100점'},
+      ]},
+    ]
+  },
+  gyeongdo:{
+    emoji:'🎭',title:'경도',subtitle:'담임선생님과 함께하는 이벤트',
+    color:'#e8420a',bg:'rgba(232,66,10,0.1)',
+    tags:[{t:'이벤트',c:'tag-red'},{t:'학급별',c:'tag-yellow'}],
+    glance:{
+      chips:[
+        {icon:'👥',label:'인원',val:'각 반 담임선생님 + 학생 7명'},
+        {icon:'🎯',label:'종류',val:'이벤트'},
+        {icon:'📍',label:'진행',val:'학교 외부'},
+        {icon:'⏱️',label:'시간',val:'11:55~12:20'},
+      ],
+      win:'이벤트 종목으로 별도 규정 적용'
+    },
+    flow:[],
+    bans:[],
+    sections:[
+      {title:'기본 안내',icon:'📋',rows:[
+        {k:'인원',v:'각 반 담임선생님 + 학생 7명'},
+        {k:'장소',v:'학교 외부'},
+        {k:'시간',v:'11:55 ~ 12:20 진행'},
+        {k:'담당',v:'이채현, 전도진 / 이정우 교사'},
       ]},
     ]
   },
